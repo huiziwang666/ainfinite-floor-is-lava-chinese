@@ -889,9 +889,12 @@ const GameEngine: React.FC<GameEngineProps> = ({ gameState, setGameState, poseDa
         
         {/* HUD - Chinese New Year Theme */}
         <div className="absolute top-8 left-1/2 transform -translate-x-1/2 text-center pointer-events-none z-10">
-            <h1 className="text-5xl text-[#FFD700] game-font leading-tight drop-shadow-lg" style={{textShadow: '3px 3px 0 #8B0000, -1px -1px 0 #8B0000, 1px -1px 0 #8B0000, -1px 1px 0 #8B0000'}}>
-                🐒 MONKEY KING RUN 🏮
-            </h1>
+            <div className="flex items-center justify-center gap-3">
+                <img src="/new-logo.png" alt="AInfinite" className="w-12 h-12" />
+                <h1 className="text-5xl text-[#FFD700] game-font leading-tight drop-shadow-lg" style={{textShadow: '3px 3px 0 #8B0000, -1px -1px 0 #8B0000, 1px -1px 0 #8B0000, -1px 1px 0 #8B0000'}}>
+                    AINFINITE MONKEY KING RUN 🏮
+                </h1>
+            </div>
             <div className="text-[#FFD700] text-lg mt-1" style={{textShadow: '2px 2px 0 #8B0000'}}>
                 Happy Chinese New Year!
             </div>

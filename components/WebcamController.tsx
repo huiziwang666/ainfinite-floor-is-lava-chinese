@@ -132,7 +132,7 @@ const WebcamController: React.FC<WebcamControllerProps> = ({
       <video ref={videoRef} className="hidden" playsInline muted></video>
       
       <div className={`relative rounded-xl overflow-hidden border-4 ${showSkeleton ? 'border-white' : 'border-transparent'} shadow-xl bg-black/50`}>
-        <canvas ref={canvasRef} width={240} height={180} className="block" />
+        <canvas ref={canvasRef} width={400} height={300} className="block" />
         <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-black/60 px-2 rounded text-white text-xs">
             Webcam Preview
         </div>

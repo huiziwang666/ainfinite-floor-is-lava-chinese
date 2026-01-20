@@ -113,9 +113,12 @@ const App: React.FC = () => {
                     // START SCREEN - CNY Theme
                     <>
                         <div className="text-6xl mb-2">🐒</div>
-                        <h1 className="text-3xl text-[#FFD700] font-black drop-shadow-md mb-2 game-font">
-                            MONKEY KING RUN
-                        </h1>
+                        <div className="flex items-center justify-center gap-2 mb-2">
+                            <img src="/new-logo.png" alt="AInfinite" className="w-8 h-8" />
+                            <h1 className="text-3xl text-[#FFD700] font-black drop-shadow-md game-font">
+                                AINFINITE MONKEY KING RUN
+                            </h1>
+                        </div>
                         <p className="text-[#FFD700]/80 text-sm mb-4">🏮 Happy Chinese New Year! 🏮</p>
 
                         {!gameState.cameraReady ? (
