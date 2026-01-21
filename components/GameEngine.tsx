@@ -94,7 +94,7 @@ const GameEngine: React.FC<GameEngineProps> = ({ gameState, setGameState, poseDa
     sunLight.shadow.mapSize.height = 1024;
     scene.add(sunLight);
 
-    // 5. Sky Elements (Moon & Floating Lanterns) - Chinese New Year Night Scene
+    // 5. Sky Elements (Moon & Floating Lanterns) - Lunar New Year Night Scene
     const skyGroup = new THREE.Group();
     scene.add(skyGroup);
 
@@ -168,7 +168,7 @@ const GameEngine: React.FC<GameEngineProps> = ({ gameState, setGameState, poseDa
     skyGroup.add(lanternGroup);
     cloudsRef.current = lanternGroup; // Use for animation
 
-    // FESTIVE GROUND PLANES (Dark green with Chinese New Year feel)
+    // FESTIVE GROUND PLANES (Dark green with Lunar New Year feel)
     const groundMat = new THREE.MeshStandardMaterial({ color: COLORS.GROUND_FESTIVE }); // Dark festive green
 
     // Left ground
@@ -325,6 +325,20 @@ const GameEngine: React.FC<GameEngineProps> = ({ gameState, setGameState, poseDa
   useEffect(() => {
     isPausedRef.current = gameState.isPaused;
   }, [gameState.isPaused]);
+
+  // --- WINDOW RESIZE HANDLER ---
+  useEffect(() => {
+    const handleResize = () => {
+      if (rendererRef.current && cameraRef.current) {
+        rendererRef.current.setSize(window.innerWidth, window.innerHeight);
+        cameraRef.current.aspect = window.innerWidth / window.innerHeight;
+        cameraRef.current.updateProjectionMatrix();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // --- BACKGROUND MUSIC ---
   useEffect(() => {
@@ -502,7 +516,7 @@ const GameEngine: React.FC<GameEngineProps> = ({ gameState, setGameState, poseDa
   const createEnvironmentMesh = (type: 'tree' | 'grass' | 'flower'): THREE.Group => {
     const group = new THREE.Group();
 
-    // Chinese New Year themed decorations
+    // Lunar New Year themed decorations
     const redMat = new THREE.MeshStandardMaterial({ color: 0xff0000 });
     const goldMat = new THREE.MeshStandardMaterial({ color: 0xFFD700, metalness: 0.5, roughness: 0.3 });
     const darkWoodMat = new THREE.MeshStandardMaterial({ color: 0x4a3728 });
@@ -887,7 +901,7 @@ const GameEngine: React.FC<GameEngineProps> = ({ gameState, setGameState, poseDa
     <div className="relative w-full h-full">
         <div ref={containerRef} className="w-full h-full block" />
         
-        {/* HUD - Chinese New Year Theme */}
+        {/* HUD - Lunar New Year Theme */}
         <div className="absolute top-8 left-1/2 transform -translate-x-1/2 text-center pointer-events-none z-10">
             <div className="flex items-center justify-center gap-3">
                 <img src="/new-logo.png" alt="AInfinite" className="w-12 h-12" />

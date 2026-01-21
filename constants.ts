@@ -27,7 +27,7 @@ export const GAME_CONSTANTS = {
 };
 
 export const COLORS = {
-  // Chinese New Year Theme - Red & Gold
+  // Lunar New Year Theme - Red & Gold
   LAVA_EMISSIVE: 0xcc0000,  // Deep red for obstacles
   LAVA_CORE: 0xff0000,
 
@@ -42,7 +42,7 @@ export const COLORS = {
   MONKEY_STAFF: 0x8B4513,   // Brown staff
   MONKEY_PANTS: 0xcc0000,   // Red pants
 
-  // CNY Environment
+  // LNY Environment
   SKY_MINECRAFT: 0x1a0a2e,  // Deep night sky (festive evening)
   SKY_HORIZON: 0x2d1b4e,    // Purple horizon
 

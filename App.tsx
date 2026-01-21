@@ -18,7 +18,15 @@ const App: React.FC = () => {
 
   const [poseData, setPoseData] = useState<any>(null);
 
-  const handleStart = () => {
+  const handleStart = async () => {
+    // Request fullscreen and wait for it to complete
+    try {
+      await document.documentElement.requestFullscreen?.();
+      // Small delay to ensure fullscreen is fully applied
+      await new Promise(resolve => setTimeout(resolve, 100));
+      window.dispatchEvent(new Event('resize'));
+    } catch {}
+
     setGameState(prev => ({
       ...prev,
       isPlaying: true,
@@ -30,6 +38,9 @@ const App: React.FC = () => {
   };
 
   const handleRestart = () => {
+    // Request fullscreen
+    document.documentElement.requestFullscreen?.().catch(() => {});
+
     setGameState(prev => ({
       ...prev,
       isPlaying: true,
@@ -54,7 +65,7 @@ const App: React.FC = () => {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-[#1a0a2e]">
-      {/* Branding - CNY Theme */}
+      {/* Branding - LNY Theme */}
       <div className="absolute bottom-4 right-4 z-50 bg-[#8B0000]/80 backdrop-blur-md p-2 rounded-lg border border-[#FFD700]/50 flex flex-col items-center">
         <img src="/new-logo.png" alt="AInfinite Game Studio" className="w-10 h-10 mb-1" />
         <div className="text-[#FFD700]/90 text-[10px] font-bold uppercase tracking-wider text-center leading-tight">
@@ -75,7 +86,7 @@ const App: React.FC = () => {
           poseData={poseData}
       />
 
-      {/* Pause Button - visible during active gameplay - CNY Theme */}
+      {/* Pause Button - visible during active gameplay - LNY Theme */}
       {gameState.isPlaying && !gameState.gameOver && !gameState.isPaused && (
         <button
           onClick={handlePause}
@@ -85,7 +96,7 @@ const App: React.FC = () => {
         </button>
       )}
 
-      {/* Pause Overlay - CNY Theme */}
+      {/* Pause Overlay - LNY Theme */}
       {gameState.isPlaying && gameState.isPaused && !gameState.gameOver && (
         <div className="absolute inset-0 flex items-center justify-center z-40 bg-black/60 backdrop-blur-sm">
           <div className="bg-gradient-to-b from-[#8B0000] to-[#660000] rounded-3xl p-8 max-w-md w-full text-center shadow-2xl border-4 border-[#FFD700]">
@@ -102,7 +113,7 @@ const App: React.FC = () => {
         </div>
       )}
 
-      {/* UI Overlays - Chinese New Year Theme */}
+      {/* UI Overlays - Lunar New Year Theme */}
       {(!gameState.isPlaying || gameState.gameOver) && (
         <div className="absolute inset-0 flex items-center justify-center z-40 bg-black/60 backdrop-blur-sm">
            <div className="bg-gradient-to-b from-[#8B0000] to-[#660000] rounded-3xl p-8 max-w-lg w-full text-center shadow-2xl border-4 border-[#FFD700] relative overflow-hidden">
@@ -110,7 +121,7 @@ const App: React.FC = () => {
 
               <div className="relative z-10 pt-2">
                 {!gameState.gameOver ? (
-                    // START SCREEN - CNY Theme
+                    // START SCREEN - LNY Theme
                     <>
                         <div className="text-6xl mb-2">🐴</div>
                         <div className="flex items-center justify-center gap-2 mb-2">
@@ -164,7 +175,7 @@ const App: React.FC = () => {
                         )}
                     </>
                 ) : (
-                    // GAME OVER - CNY Theme
+                    // GAME OVER - LNY Theme
                     <div className="-mt-4">
                         {/* Monkey King emoji with glow effect */}
                         <div className="relative mb-6">
