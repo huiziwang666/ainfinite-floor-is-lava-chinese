@@ -89,7 +89,7 @@ const App: React.FC = () => {
       {gameState.isPlaying && gameState.isPaused && !gameState.gameOver && (
         <div className="absolute inset-0 flex items-center justify-center z-40 bg-black/60 backdrop-blur-sm">
           <div className="bg-gradient-to-b from-[#8B0000] to-[#660000] rounded-3xl p-8 max-w-md w-full text-center shadow-2xl border-4 border-[#FFD700]">
-            <div className="text-6xl mb-4">🏮</div>
+            <div className="text-6xl mb-4">🐴</div>
             <h2 className="text-3xl text-[#FFD700] font-black mb-6 game-font">PAUSED</h2>
             <button
               onClick={handleResume}
@@ -112,14 +112,14 @@ const App: React.FC = () => {
                 {!gameState.gameOver ? (
                     // START SCREEN - CNY Theme
                     <>
-                        <div className="text-6xl mb-2">🐒</div>
+                        <div className="text-6xl mb-2">🐴</div>
                         <div className="flex items-center justify-center gap-2 mb-2">
                             <img src="/new-logo.png" alt="AInfinite" className="w-8 h-8" />
                             <h1 className="text-3xl text-[#FFD700] font-black drop-shadow-md game-font">
                                 AINFINITE MONKEY KING RUN
                             </h1>
                         </div>
-                        <p className="text-[#FFD700]/80 text-sm mb-4">🏮 Happy Chinese New Year! 🏮</p>
+                        <p className="text-[#FFD700]/80 text-sm mb-4">🏮 Year of the Horse 2026 🐴</p>
 
                         {!gameState.cameraReady ? (
                             <div className="animate-pulse text-xl text-[#FFD700]/70 mb-8 py-8">
@@ -171,7 +171,7 @@ const App: React.FC = () => {
                             <div className="absolute inset-0 flex justify-center items-center">
                                 <div className="w-28 h-28 bg-[#FFD700]/20 rounded-full blur-xl"></div>
                             </div>
-                            <div className="text-8xl relative z-10">🐒</div>
+                            <div className="text-8xl relative z-10">🐴</div>
                         </div>
 
                         {/* Game Over Text */}

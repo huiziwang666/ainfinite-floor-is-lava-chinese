@@ -896,7 +896,7 @@ const GameEngine: React.FC<GameEngineProps> = ({ gameState, setGameState, poseDa
                 </h1>
             </div>
             <div className="text-[#FFD700] text-lg mt-1" style={{textShadow: '2px 2px 0 #8B0000'}}>
-                Happy Chinese New Year!
+                🐴 Year of the Horse 2026 🐴
             </div>
         </div>
 
